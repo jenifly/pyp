@@ -1,0 +1,503 @@
+[D 180704 13:03:29 selector_events:65] Using selector: EpollSelector
+[I 180704 13:03:32 web:2106] 304 GET / (127.0.0.1) 0.51ms
+s[I 180704 16:41:35 web:2106] 200 GET / (192.168.110.1) 1.52ms
+[W 180704 16:41:35 web:2106] 404 GET /favicon.ico (192.168.110.1) 1.84ms
+[I 180704 17:37:15 autoreload:196] /home/jenifly/桌面/code/python/pyp/urls.py modified; restarting server
+[D 180704 17:46:37 selector_events:65] Using selector: EpollSelector
+[W 180704 17:46:51 web:2106] 404 GET /api/imqgecode (192.168.110.1) 1.23ms
+[W 180704 17:47:04 web:1618] 400 GET /api/imagecode (192.168.110.1): Missing argument codeid
+[W 180704 17:47:04 web:2106] 400 GET /api/imagecode (192.168.110.1) 2.92ms
+[W 180704 17:47:58 web:1618] 400 GET /api/imagecode (127.0.0.1): Missing argument codeid
+[W 180704 17:47:58 web:2106] 400 GET /api/imagecode (127.0.0.1) 0.98ms
+[W 180704 17:49:23 web:1618] 400 GET /api/imagecode?codeid=dsadsa (127.0.0.1): Missing argument pcodeid
+[W 180704 17:49:23 web:2106] 400 GET /api/imagecode?codeid=dsadsa (127.0.0.1) 1.32ms
+[W 180704 17:49:40 web:1618] 400 GET /api/imagecode?codeid=123 (127.0.0.1): Missing argument pcodeid
+[W 180704 17:49:40 web:2106] 400 GET /api/imagecode?codeid=123 (127.0.0.1) 4.04ms
+[W 180704 17:49:56 web:1618] 400 GET /api/imagecode?codeid=123pcodeid (127.0.0.1): Missing argument pcodeid
+[W 180704 17:49:56 web:2106] 400 GET /api/imagecode?codeid=123pcodeid (127.0.0.1) 1.06ms
+[W 180704 17:50:01 web:1618] 400 GET /api/imagecode?codeid=123pcodeid= (127.0.0.1): Missing argument pcodeid
+[W 180704 17:50:01 web:2106] 400 GET /api/imagecode?codeid=123pcodeid= (127.0.0.1) 3.77ms
+[E 180704 17:51:13 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1)
+    HTTPServerRequest(protocol='http', host='192.168.110.130:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='192.168.110.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/桌面/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 17:51:13 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 101.16ms
+[E 180704 17:51:32 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/桌面/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 17:51:32 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 4.60ms
+[E 180704 17:52:28 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/桌面/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 17:52:28 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 4.72ms
+[E 180704 17:53:02 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1)
+    HTTPServerRequest(protocol='http', host='192.168.110.130:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='192.168.110.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/桌面/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/桌面/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 17:53:02 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 3.52ms
+[D 180704 18:22:24 selector_events:65] Using selector: EpollSelector
+[W 180704 18:23:53 web:2106] 404 GET /favicon.ico (127.0.0.1) 970.28ms
+[E 180704 18:23:53 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:23:53 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 20.35ms
+[E 180704 18:23:55 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:23:55 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 3.41ms
+[E 180704 18:24:09 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:24:09 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 4.62ms
+[I 180704 18:27:12 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:27:13 selector_events:65] Using selector: EpollSelector
+[E 180704 18:27:21 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:27:21 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 12.50ms
+[E 180704 18:27:23 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:27:23 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 31.14ms
+[E 180704 18:27:24 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 18, in get
+        name, text, image = captcha.generate_captcha()
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/usr/lib/python3/dist-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/usr/lib/python3/dist-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180704 18:27:24 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 20.56ms
+[I 180704 18:31:45 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:31:45 selector_events:65] Using selector: EpollSelector
+[I 180704 18:31:49 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:31:49 selector_events:65] Using selector: EpollSelector
+[I 180704 18:32:44 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:32:45 selector_events:65] Using selector: EpollSelector
+[I 180704 18:32:49 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:32:49 selector_events:65] Using selector: EpollSelector
+[I 180704 18:34:07 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 18:34:07 selector_events:65] Using selector: EpollSelector
+[I 180704 18:39:07 autoreload:196] /home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py modified; restarting server
+[D 180704 18:39:07 selector_events:65] Using selector: EpollSelector
+[I 180704 18:39:17 autoreload:196] /home/jenifly/Desktop/code/python/pyp/utils/captcha/captcha.py modified; restarting server
+[D 180704 18:39:17 selector_events:65] Using selector: EpollSelector
+[E 180704 18:39:30 VerifyCode:23] 'Application' object has no attribute 'redis'
+[I 180704 18:39:30 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 9.93ms
+[I 180704 18:43:14 autoreload:196] /home/jenifly/Desktop/code/python/pyp/urls.py modified; restarting server
+[D 180704 19:05:53 selector_events:65] Using selector: EpollSelector
+[W 180704 19:05:55 web:2106] 404 GET / (127.0.0.1) 1.03ms
+[I 180704 19:06:11 autoreload:196] /home/jenifly/Desktop/code/python/pyp/urls.py modified; restarting server
+[D 180704 19:07:24 selector_events:65] Using selector: EpollSelector
+[E 180704 19:07:28 VerifyCode:22] 'Application' object has no attribute 'redis'
+[I 180704 19:07:28 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 48.11ms
+[I 180704 19:07:34 web:2106] 200 GET / (127.0.0.1) 185.92ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 7.07ms
+[W 180704 19:07:34 web:2106] 404 GET /static/css/reset.css (127.0.0.1) 3.03ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 2.59ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 3.09ms
+[W 180704 19:07:34 web:2106] 404 GET /static/css/ihome/main.css (127.0.0.1) 2.49ms
+[W 180704 19:07:34 web:2106] 404 GET /static/js/jquery.min.js (127.0.0.1) 1.88ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.64ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 1.31ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.47ms
+[W 180704 19:07:34 web:2106] 404 GET /static/css/ihome/index.css (127.0.0.1) 1.40ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.16ms
+[W 180704 19:07:34 web:2106] 404 GET /static/js/template.js (127.0.0.1) 2.04ms
+[W 180704 19:07:34 web:2106] 404 GET /static/js/ihome/index.js (127.0.0.1) 1.06ms
+[W 180704 19:07:34 web:2106] 404 GET /static/images/logo@128x59.png (127.0.0.1) 0.92ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.16ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 0.71ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 0.72ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 0.58ms
+[W 180704 19:07:34 web:2106] 404 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 0.75ms
+[W 180704 19:07:34 web:2106] 404 GET /static/js/template.js (127.0.0.1) 1.09ms
+[W 180704 19:07:34 web:2106] 404 GET /static/js/ihome/index.js (127.0.0.1) 0.50ms
+[E 180704 19:19:04 VerifyCode:22] 'Application' object has no attribute 'redis'
+[I 180704 19:19:04 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 4.40ms
+[E 180704 19:19:09 VerifyCode:22] 'Application' object has no attribute 'redis'
+[I 180704 19:19:09 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 4.29ms
+[I 180704 19:19:29 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 19:20:09 selector_events:65] Using selector: EpollSelector
+[E 180704 19:20:12 VerifyCode:23] 'Application' object has no attribute 'redis'
+[I 180704 19:20:12 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 10.29ms
+[E 180704 19:20:16 VerifyCode:23] 'Application' object has no attribute 'redis'
+[I 180704 19:20:16 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 4.42ms
+[E 180704 19:20:17 VerifyCode:23] 'Application' object has no attribute 'redis'
+[I 180704 19:20:17 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (192.168.110.1) 5.31ms
+[I 180704 19:53:02 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 20:21:36 selector_events:65] Using selector: EpollSelector
+[E 180704 20:21:45 VerifyCode:25] 'Application' object has no attribute 'redis'
+[I 180704 20:21:45 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 14.81ms
+[E 180704 20:21:55 VerifyCode:25] 'Application' object has no attribute 'redis'
+[I 180704 20:21:55 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 4.40ms
+[I 180704 20:22:25 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 20:22:25 selector_events:65] Using selector: EpollSelector
+[E 180704 20:22:32 VerifyCode:25] 'Application' object has no attribute 'redis'
+[I 180704 20:22:32 web:2106] 200 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 12.18ms
+[I 180704 20:23:37 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 20:23:38 selector_events:65] Using selector: EpollSelector
+[E 180704 20:23:43 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 12, in get
+        self.redis.setex("image_code_432", 120, "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:23:43 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 7.64ms
+[I 180704 20:27:18 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:27:18 selector_events:65] Using selector: EpollSelector
+[I 180704 20:27:25 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:27:25 selector_events:65] Using selector: EpollSelector
+[I 180704 20:27:27 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:27:27 selector_events:65] Using selector: EpollSelector
+[I 180704 20:28:29 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 20:28:29 selector_events:65] Using selector: EpollSelector
+[E 180704 20:28:37 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:28:37 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 1.53ms
+[I 180704 20:29:29 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:29:29 selector_events:65] Using selector: EpollSelector
+[I 180704 20:29:46 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:29:46 selector_events:65] Using selector: EpollSelector
+[E 180704 20:29:50 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:29:50 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 6.99ms
+[E 180704 20:30:07 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:30:07 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 0.98ms
+[I 180704 20:30:26 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:30:26 selector_events:65] Using selector: EpollSelector
+[E 180704 20:30:28 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 18, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:30:28 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 1.81ms
+[I 180704 20:31:24 autoreload:196] server.py modified; restarting server
+[D 180704 20:31:24 selector_events:65] Using selector: EpollSelector
+[I 180704 20:31:39 autoreload:196] server.py modified; restarting server
+[D 180704 20:31:39 selector_events:65] Using selector: EpollSelector
+[I 180704 20:31:51 autoreload:196] server.py modified; restarting server
+[D 180704 20:33:12 selector_events:65] Using selector: EpollSelector
+[E 180704 20:33:15 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 18, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:33:15 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 1.46ms
+[I 180704 20:33:41 autoreload:196] server.py modified; restarting server
+[D 180704 20:35:08 selector_events:65] Using selector: EpollSelector
+[D 180704 20:35:22 selector_events:65] Using selector: EpollSelector
+[I 180704 20:37:28 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:37:28 selector_events:65] Using selector: EpollSelector
+[I 180704 20:37:45 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py modified; restarting server
+[D 180704 20:37:45 selector_events:65] Using selector: EpollSelector
+[I 180704 20:39:26 autoreload:196] /home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py modified; restarting server
+[D 180704 20:39:26 selector_events:65] Using selector: EpollSelector
+[E 180704 20:39:34 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:39:34 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 2.08ms
+[E 180704 20:39:34 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:39:34 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 0.76ms
+[E 180704 20:39:34 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:39:34 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 0.80ms
+[E 180704 20:39:35 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:39:35 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 3.85ms
+[E 180704 20:39:35 web:1621] Uncaught exception GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/imagecode?codeid=123&pcodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.6/dist-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/VerifyCode.py", line 13, in get
+        self.redis.setex("image_code_432", "120", "text")
+      File "/home/jenifly/Desktop/code/python/pyp/handlers/BaseHandler.py", line 17, in redis
+        return self.application.redis
+    AttributeError: 'Application' object has no attribute 'redis'
+[E 180704 20:39:35 web:2106] 500 GET /api/imagecode?codeid=123&pcodeid= (127.0.0.1) 0.94ms
+[I 180704 20:40:51 autoreload:196] server.py modified; restarting server
