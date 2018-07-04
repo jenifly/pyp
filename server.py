@@ -24,9 +24,7 @@ def main():
 	options.logging = config.log_level
 	options.log_file_prefix = config.log_file
 	tornado.options.parse_command_line()
-	app = tornado.web.Application(
-		    handlers, **config.settings
-		)
+	app = Application(handlers, **config.settings)
 	http_server = tornado.httpserver.HTTPServer(app)
 	http_server.listen(options.port)
 	tornado.ioloop.IOLoop.current().start()

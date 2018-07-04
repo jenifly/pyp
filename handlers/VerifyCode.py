@@ -10,7 +10,6 @@ from utils.response_code import RET
 class ImageCodeHandler(BaseHandler):
 
     def get(self):
-        self.redis.setex("image_code_432", "120", "text")
         code_id = self.get_argument("codeid")
         pre_code_id = self.get_argument("pcodeid")
         if pre_code_id:
@@ -19,13 +18,12 @@ class ImageCodeHandler(BaseHandler):
             except Exception as e:
                 logging.error(e)
         name, text, image = captcha.generate_captcha()
+        print(text)
         try:
             self.redis.setex("image_code_%s" % code_id, IMAGE_CODE_EXPIRES_SENCONDS, text)
-            print("redis_yes")
         except Exception as e:
             logging.error(e)
             self.write("")
-            print("redis_no")
         self.set_header("Content-Type", "image/jpg")
         self.write(image)
 
